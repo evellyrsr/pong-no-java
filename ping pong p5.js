@@ -10,7 +10,6 @@ let velocidadeYBolinha = 2;
 
 // desenho bolinha
 function mostraBolinha(){
-   fill("white");
   circle(xBolinha, yBolinha, diametroBolinha); 
 }
 
@@ -33,18 +32,26 @@ function movimentoBolinha(){
   }
 
 // variáveis da raquete
+// minha raquete
 let xRaquete = 5
 let yRaquete = 150
 let comprimentoRaquete = 10
 let alturaRaquete = 90
 
+// raquete oponente
+let xRaqueteOpo = 585
+let yRaqueteOpo = 150
+let comprimentoRaqueteOpo = 10
+let alturaRaqueteOpo = 90
+
 // desenho raquete
 function mostraRaquete(){
   rect(xRaquete, yRaquete, comprimentoRaquete, alturaRaquete);
+  rect(xRaqueteOpo, yRaqueteOpo, comprimentoRaqueteOpo, alturaRaqueteOpo);
 }
 
 // movimento da minha raquete
-function movimentoRaqueteMy(){
+function movimentoRaqueteMinha(){
   if(keyIsDown(UP_ARROW)){ 
   yRaquete -= 10;
   }
@@ -60,9 +67,8 @@ function setup() {
 function draw() {
   background("black");
   mostraBolinha();
-  movimentoBolinha();
+  // movimentoBolinha();
   colisãoBolinha();
   mostraRaquete();
-  movimentoRaqueteMy();
-  
+  movimentoRaqueteMinha();
 }
