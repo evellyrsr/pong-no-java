@@ -5,8 +5,8 @@ let diametroBolinha = 25
 let raioBolinha = diametroBolinha / 2;
 
 // velocidade da bolinha
-let velocidadeXBolinha = 2;
-let velocidadeYBolinha = 2;
+let velocidadeXBolinha = 6;
+let velocidadeYBolinha = 6;
 
 // desenho bolinha
 function mostraBolinha(){
@@ -31,7 +31,7 @@ function movimentoBolinha(){
 }
   }
 
-// variáveis da raquete
+// variáveis das raquetes
 // minha raquete
 let xRaquete = 5
 let yRaquete = 150
@@ -44,22 +44,36 @@ let yRaqueteOpo = 150
 let comprimentoRaqueteOpo = 10
 let alturaRaqueteOpo = 90
 
-// desenho raquete
+// desenho raquetes
 function mostraRaquete(){
   rect(xRaquete, yRaquete, comprimentoRaquete, alturaRaquete);
   rect(xRaqueteOpo, yRaqueteOpo, comprimentoRaqueteOpo, alturaRaqueteOpo);
 }
 
 // movimento da minha raquete
-function movimentoRaqueteMinha(){
+  function movimentoRaqueteMinha(){
   if(keyIsDown(UP_ARROW)){ 
   yRaquete -= 10;
   }
   if(keyIsDown(DOWN_ARROW)){
   yRaquete += 10;
   }
+   }
+
+// movimento da raquete oponente
+// function movimentoRaqueteOpo(){
+
+// }
+
+// colisão bolinha com raquete
+  function colisaoBolinhaRaquete(){
+    if(xBolinha - raioBolinha < xRaquete + comprimentoRaquete
+       && yBolinha - raioBolinha < yRaquete + alturaRaquete
+       && yBolinha + raioBolinha > yRaquete){
+      velocidadeXBolinha *= -1;
+    }
+  }
   
-}
 function setup() {
   createCanvas(600, 400);
 }
@@ -67,8 +81,11 @@ function setup() {
 function draw() {
   background("black");
   mostraBolinha();
-  // movimentoBolinha();
+  movimentoBolinha();
   colisãoBolinha();
   mostraRaquete();
   movimentoRaqueteMinha();
+  // movimentaRaqueteOpo();
+  colisaoBolinhaRaquete();
+  
 }
