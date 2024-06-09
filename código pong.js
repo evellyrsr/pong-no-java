@@ -32,10 +32,6 @@ function colisãoBolinha(){
     velocidadeYBolinha *= -1
 }}
 
-
-
-
-
 // RAQUETES
 
 // variáveis das raquetes
@@ -69,12 +65,7 @@ function mostraRaquete(x, y){
   rect(x, y, comprimentoRaquete, alturaRaquete);
 }
 
-
-
-
-
 // COLISÃO
-
 let colisao = false
 
 function colisaoBolinhaRaquete(){
@@ -91,12 +82,7 @@ function colisaoRaquetes(x, y){
     velocidadeXBolinha *= -1
 }}
 
-
-
-
-
 // SETUP JOGO
-
 function setup() {
   createCanvas(600, 400);
 }
