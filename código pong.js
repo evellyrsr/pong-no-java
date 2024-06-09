@@ -45,6 +45,7 @@ let comprimentoRaquete = 10
 let alturaRaquete = 90
 
 // movimento da minha raquete
+// JOGADOR 1
 function movimentoRaqueteMinha(){
   if(keyIsDown(87)){ 
     yRaquete -= 8;
@@ -58,14 +59,22 @@ let xRaqueteOponente = 585;
 let yRaqueteOponente = 150;
 
 // movimento da raquete oponente
+// JOGADOR 2 = LOCAL
 function movimentoRaqueteOponente(){
   if(keyIsDown(UP_ARROW)){ 
     yRaqueteOponente -= 8;
   }
   if(keyIsDown(DOWN_ARROW)){
     yRaqueteOponente += 8;
+ }
 }
-}
+
+// JOGADOR 2 = CPU
+// function movimentoRaqueteOponente(){
+//   velocidadeYOponente = yBolinha -yRaqueteOponente - comprimentoRaquete / 2 - 30;
+//   yRaqueteOponente += velocidadeYOponente;
+// }
+
 // desenho raquetes
 function mostraRaquete(x, y){
   rect(x, y, comprimentoRaquete, alturaRaquete);
